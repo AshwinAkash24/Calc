@@ -27,95 +27,175 @@ Publish the website in the given URL.
 ## PROGRAM :
 ```
 calc.html
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link rel="stylesheet" type="text/css" href="calc.css">
-</head>
-<body>
-<h1 align="center">Ashwin Akash M (212223230024)</h1>
-<div class="calculator">
-    <input type="text" id="display" readonly>
-    <input type="button" value="7" onclick="addToDisplay('7')">
-    <input type="button" value="8" onclick="addToDisplay('8')">
-    <input type="button" value="9" onclick="addToDisplay('9')">
-    <input type="button" value="/" onclick="addToDisplay('/')">
-    <input type="button" value="4" onclick="addToDisplay('4')">
-    <input type="button" value="5" onclick="addToDisplay('5')">
-    <input type="button" value="6" onclick="addToDisplay('6')">
-    <input type="button" value="*" onclick="addToDisplay('*')">
-    <input type="button" value="1" onclick="addToDisplay('1')">
-    <input type="button" value="2" onclick="addToDisplay('2')">
-    <input type="button" value="3" onclick="addToDisplay('3')">
-    <input type="button" value="-" onclick="addToDisplay('-')">
-    <input type="button" value="0" onclick="addToDisplay('0')">
-    <input type="button" value="." onclick="addToDisplay('.')">
-    <input type="button" value="=" onclick="calculate()">
-    <input type="button" value="+" onclick="addToDisplay('+')">
-    <input type="button" value="C" onclick="clearDisplay()">
-</div>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Calculator</title>
+ <link rel="stylesheet" href="calc.css">
+ </head>
+ <body style= "background-image: url('Asyvdyvd.jpg')" align="center">
+    
+    <div class="card">
+        
 
-<script src="calc.js"></script>
-
+      <div class="calculator">
+        <h3 class="card-title" >Arithmetic Calculator</h3>
+        <h4>Developed by : Ashwin Akash M(212223230024)</h4>
+        
+        <form>
+          <div class="display">
+            <input type="text" name="display">
+          </div>
+          <div>
+            <input type="button" value="AC" onclick="display.value = '' " class="operator">
+            <input type="button" value="DEL" onclick="display.value =  display.value.toString().slice(0,-1)" class="operator">
+            <input type="button" value="." onclick="display.value += '.' " class="operator">
+            <input type="button" value="/" onclick="display.value += '/' " class="operator">
+          </div>
+          <div>
+            <input type="button" value="7" onclick="display.value += '7' ">
+            <input type="button" value="8" onclick="display.value += '8' ">
+            <input type="button" value="9" onclick="display.value += '9' ">
+            <input type="button" value="*" onclick="display.value += '*' " class="operator">
+          </div>
+          <div>
+            <input type="button" value="4" onclick="display.value += '4' ">
+            <input type="button" value="5" onclick="display.value += '5' ">
+            <input type="button" value="6" onclick="display.value += '6' ">
+            <input type="button" value="-" onclick="display.value += '-' " class="operator">
+          </div>
+          <div>
+            <input type="button" value="1" onclick="display.value += '1' ">
+            <input type="button" value="2" onclick="display.value += '2' ">
+            <input type="button" value="3" onclick="display.value += '3' ">
+            <input type="button" value="+" onclick="display.value += '+' "class="operator">
+          </div>
+          <div>
+            <input type="button" value="%" onclick="display.value +='%' " class="operator">
+            <input type="button" value="0" onclick="display.value += '0' ">
+            <input type="button" value="=" onclick="display.value = eval(display.value)"class="equal operator">
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <script src="cde.js"></script>
 </body>
 </html>
 
 ```
 ```
 calc.css
-.calculator {
-    width: 220px;
-    margin: 0 auto;
-    border: none;
-    border-radius: 15px;
-    padding: 10px;
-    background-color: aqua;
-    display: grid;
-    grid-template-columns: repeat(4, 50px);
-    grid-gap: 5px;
-}
-
-input[type="button"] {
-    width: 50px;
-    padding: 10px;
-    font-size: 18px;
-    border: none;
-    border-radius: 15px;
+body{
+    width:100%;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #000000 0,#000000 58%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  h3{
+    color: #fff;
+  }
+  
+  .card-title {
+    font-size: 30px;
+  }
+  
+  p, a {
+    font-size: 1rem;
+  }
+  
+  a {
+    color: #4ad6e8;
+    text-decoration: none;
+  }
+  .shape {
+    position: absolute;
+    width: 90px;
+    top: .5rem;
+    left: .5rem;
+  }
+  .calculator{
+    background: #ed6420;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    height: auto;
+      backdrop-filter: blur(50%);
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgb(0, 0, 0); /* Soft, diffused shadow */
+    backdrop-filter: blur(4px); /* Creates the blurry, frosted glass effect */
+    -webkit-backdrop-filter: blur(4px); /* For Safari */
+    padding: 20px;
+  }
+  .calculator form input{
+    border: 0;
+    outline: 0;
+    width: 60;
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: -8px -8px 15px rgb(0, 0, 0),5px 5px 15px rgb(0, 0, 0);
+    background: transparent;
+    font-size: 38px;
+    color: whitesmoke;
     cursor: pointer;
-    background-color: #a1b795;
-    color: white;
-}
-
-input[type="text"] {
-    grid-column: span 4;
-    padding: 10px;
-    font-size: 18px;
-    border: 1px solid #0b0b0b;
-    border-radius: 15px;
-}
+    margin: 13px;
+  }
+  
+  form .display{
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+  }
+  form .display input{
+    text-align: right;
+    flex: 1;
+    font-size: 45px;
+    box-shadow: none;
+  }
+  form input.equal{
+    width: 145px;
+  }
+  form input.operator{
+    color: whitesmoke;
+  }
 ```
 ```
 calc.js
+const display = document.querySelector(".display");
+const buttons = document.querySelectorAll("button");
+const specialChars = ["%", "*", "/", "-", "+", "="];
+let output = "";
 
-function addToDisplay(value) {
-    document.getElementById('display').value += value;
-}
+const calculate = (btnValue) => {
+  display.focus();
+  if (btnValue === "=" && output !== "") {
+    output = eval(output.replace("%", "/100"));
+  } else if (btnValue === "AC") {
+    output = "";
+  } else if (btnValue === "DEL") {
+    output = output.toString().slice(0, -1);
+  } else {
+    if (output === "" && specialChars.includes(btnValue)) return;
+    output += btnValue;
+  }
+  display.value = output;
+};
 
-function calculate() {
-    var expression = document.getElementById('display').value;
-    var result = eval(expression);
-    document.getElementById('display').value = result;
-}
-
-function clearDisplay() {
-    document.getElementById('display').value = '';
-}
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => calculate(e.target.dataset.value));
+});
 ```
 ## OUTPUT:
-![alt text](calproject/calapp/static/web-08.png)
-![alt text](calproject/calapp/static/web-08(1).png)
+![Screenshot 2024-04-29 131635](https://github.com/AshwinAkash24/Calc/assets/144979248/e1d2680e-a700-4854-acdc-a135bcb23bf9)
+![Screenshot 2024-04-29 131657](https://github.com/AshwinAkash24/Calc/assets/144979248/5c1d4853-8b33-4376-8f68-2283271f5065)
+
 ## RESULT:
 The program for designing a standard calculator using HTML and CSS is executed successfully.
